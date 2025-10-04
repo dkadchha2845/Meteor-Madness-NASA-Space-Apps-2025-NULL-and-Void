@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Deep space theme - cosmic colors */
+    --background: 240 15% 8%;
+    --foreground: 210 100% 98%;
+
+    --card: 240 20% 12%;
+    --card-foreground: 210 100% 98%;
+
+    --popover: 240 20% 12%;
+    --popover-foreground: 210 100% 98%;
+
+    /* Cosmic purple primary */
+    --primary: 260 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Deep space secondary */
+    --secondary: 240 25% 18%;
+    --secondary-foreground: 210 100% 98%;
+
+    --muted: 240 20% 15%;
+    --muted-foreground: 220 15% 65%;
+
+    /* Electric blue accent */
+    --accent: 200 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Danger orange for impacts */
+    --destructive: 25 100% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 20% 20%;
+    --input: 240 20% 15%;
+    --ring: 260 80% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom space theme tokens */
+    --cosmic-purple: 270 80% 60%;
+    --cosmic-blue: 200 100% 50%;
+    --nebula-pink: 320 80% 60%;
+    --warning-orange: 25 100% 55%;
+    --success-green: 140 70% 50%;
+    
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(270 80% 40%), hsl(200 100% 40%));
+    --gradient-danger: linear-gradient(135deg, hsl(25 100% 50%), hsl(0 100% 50%));
+    --gradient-success: linear-gradient(135deg, hsl(140 70% 45%), hsl(160 70% 45%));
+    
+    /* Glows and shadows */
+    --glow-purple: 0 0 30px hsl(270 80% 60% / 0.5);
+    --glow-blue: 0 0 30px hsl(200 100% 50% / 0.5);
+    --glow-danger: 0 0 30px hsl(25 100% 55% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: radial-gradient(ellipse at top, hsl(240 20% 12%), hsl(240 15% 8%));
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .cosmic-glow {
+    box-shadow: var(--glow-purple);
+  }
+  
+  .blue-glow {
+    box-shadow: var(--glow-blue);
+  }
+  
+  .danger-glow {
+    box-shadow: var(--glow-danger);
+  }
+  
+  .glass-panel {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+}
